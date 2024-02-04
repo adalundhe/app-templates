@@ -2,6 +2,33 @@
 	"name": "Python 3",
 	"dockerComposeFile": "docker-compose.yml",
 	"service": "app",
-	"workspaceFolder": "/workspace"
+	"workspaceFolder": "/workspace",
+	"customizations": {
+		// Configure properties specific to VS Code.
+		"vscode": {
+			// Set *default* container specific settings.json values on container create.
+			"settings": { 
+				"python.defaultInterpreterPath": "/usr/local/bin/python",
+				"python.linting.enabled": true,
+				"python.linting.enable": true,
+				"python.testing.pytestPath": "/usr/local/py-utils/bin/pytest",
+				"git.path": "/usr/local/bin/git",	
+				"editor.formatOnSave": true,
 
+				"editor.codeActionsOnSave": {
+					"source.fixAll": "always",
+					"source.organizeImports": "always"
+				},
+				"editor.defaultFormatter": "charliermarsh.ruff"
+			},
+			
+			// Add the IDs of extensions you want installed when the container is created.
+			"extensions": [
+				"ms-python.python",
+				"ms-python.vscode-pylance",
+				"charliermarsh.ruff"
+			]
+		}
+	},
+	"remoteUser": "datavant-dev"
 }
