@@ -10,13 +10,14 @@ init username email:
 dev app=app host=host port=port:
     uvicorn {{app}} --host {{host}} --port {{port}} --reload
 
-commit message branch:
+push message:
     git add -A
     git commit -m '{{message}}'
-    git push origin {{branch}}
+    git push origin HEAD
 
 sync message source="main":
     poetry lock
     git add -A
     git commit -m '{{message}}'
     git pull origin {{source}}
+    git push origin HEAD
