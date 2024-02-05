@@ -18,6 +18,6 @@ push message:
 sync message source="main":
     poetry lock
     git add -A
-    git commit -m '{{message}}'
+    git commit -m '{{message}}' || true
     git pull origin {{source}}
     git push origin HEAD
