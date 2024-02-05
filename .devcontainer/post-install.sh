@@ -1,1 +1,3 @@
-poetry install --no-root
+poetry lock && \
+poetry install && \
+poetry shell

@@ -2,12 +2,13 @@ ARG VERSION_VARIANT=3.11
 ARG OS_VARIANT=bullseye
 
 FROM python:${VERSION_VARIANT}-slim-${OS_VARIANT}
+
 ARG USERNAME
 ARG USER_UID=1000
 ARG USER_GID=${USER_UID}
 
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONUNBUFFERED 1
+ENV PYTHONDONTWRITEBYTECODE=1 \
+  PYTHONUNBUFFERED=1
 
 RUN groupadd --gid $USER_GID $USERNAME \
     && useradd --uid $USER_UID --gid $USER_GID -m $USERNAME \
@@ -18,10 +19,11 @@ RUN groupadd --gid $USER_GID $USERNAME \
     && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME \
     && chmod 0440 /etc/sudoers.d/$USERNAME
 
-
-RUN apt install -y git build-essential libpq-dev 
-RUN pip install poetry awscli
-
-COPY pyproject.toml ./
+RUN apt install -y git build-essential libpq-dev \
+   gpg curl
+RUN pip install poetry awscli uvicorn
+RUN curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | gpg --dearmor -o /usr/share/keyrings/githubcli-archive-keyring.gpg;
+RUN echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | tee /etc/apt/sources.list.d/github-cli.list > /dev/null;
+RUN apt update && apt install -y gh;
 
 EXPOSE 5000
