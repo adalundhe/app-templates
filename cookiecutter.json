@@ -1,3 +1,4 @@
 {
-    "app": "myapp"
+    "app": "myapp",
+    "version": "3"
 }
