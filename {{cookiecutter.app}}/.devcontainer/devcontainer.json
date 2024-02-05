@@ -1,5 +1,5 @@
 {
-	"name": "Python {{version}} FastAPI Template",
+	"name": "Python {{cookiecutter.version}} FastAPI Template",
 	"dockerComposeFile": "docker-compose.yml",
 	"service": "app",
 	"workspaceFolder": "/workspace",

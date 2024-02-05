@@ -554,5 +554,5 @@ standard = ["colorama (>=0.4)", "httptools (>=0.5.0)", "python-dotenv (>=0.13)",
 
 [metadata]
 lock-version = "2.0"
-python-versions = "^{{version}}"
+python-versions = "^{{cookiecutter.version}}"
 content-hash = "de0a8bf25989e260b269ee3be9467c2214b0246564c0fd4f89e500c21185f426"

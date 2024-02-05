@@ -1,4 +1,4 @@
-ARG VERSION_VARIANT="{{version}}"
+ARG VERSION_VARIANT="{{cookiecutter.version}}"
 ARG OS_VARIANT=bookworm
 
 FROM python:${VERSION_VARIANT}-slim-${OS_VARIANT}
