@@ -14,3 +14,9 @@ commit message branch:
     git add -A
     git commit -m '{{message}}'
     git push origin {{branch}}
+
+sync message source="main":
+    poetry lock
+    git add -A
+    git commit -m '{{message}}'
+    git pull origin {{source}}
