@@ -1,4 +1,4 @@
-ARG VERSION_VARIANT=3.11
+ARG VERSION_VARIANT="{{cookiecutter.version}}"
 ARG OS_VARIANT=bullseye
 
 FROM python:${VERSION_VARIANT}-slim-${OS_VARIANT}
