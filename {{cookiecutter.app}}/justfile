@@ -1,4 +1,4 @@
-app := "{{cookiecutter.app}}.main:app"
+app := "{{cookiecutter.app}}"
 host := "0.0.0.0"
 port := "5000"
 
