@@ -21,3 +21,12 @@ RUN groupadd --gid $USER_GID $USERNAME \
 
 RUN apt install -y git build-essential
 RUN pip install poetry awscli
+
+RUN apt install -y git build-essential \
+    gpg curl && \
+    curl --proto '=https' --tlsv1.2 -sSf https://just.systems/install.sh | bash -s -- --to ./ && \
+    cp just /usr/local/bin/just
+
+RUN curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | gpg --dearmor -o /usr/share/keyrings/githubcli-archive-keyring.gpg && \
+    echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | tee /etc/apt/sources.list.d/github-cli.list > /dev/null && \
+    apt update && apt install -y gh;

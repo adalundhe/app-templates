@@ -6,8 +6,8 @@ init username email token:
     git config --global user.name {{ '"{{username}}"' }}
     echo {{ '"{{token}}"' }} | gh auth login -p ssh --with-token
 
-dev host=host port=port:
-    python {{cookiecutter.app}}/hello_world.py
+dev:
+    python {{cookiecutter.app}}/{{cookiecutter.app}}.py
 
 push message:
     git add -A
