@@ -9,7 +9,7 @@ init username email token:
     echo {{ '"{{token}}"' }} | gh auth login -p ssh --with-token
 
 dev host=host port=port:
-    uvicorn {{cookiecutter.app}} --host {{ "{{host}}" }} --port {{ "{{port}}" }} --reload
+    uvicorn {{cookiecutter.app}}.main:app --host {{ "{{host}}" }} --port {{ "{{port}}" }} --reload
 
 push message:
     git add -A
