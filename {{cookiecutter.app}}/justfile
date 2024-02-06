@@ -1,0 +1,22 @@
+app := "{{cookiecutter.app}}"
+
+init username email token:
+    git config --global --add safe.directory /workspace
+    git config --global user.email {{ '"{{email}}"' }}
+    git config --global user.name {{ '"{{username}}"' }}
+    echo {{ '"{{token}}"' }} | gh auth login -p ssh --with-token
+
+dev host=host port=port:
+    python {{cookiecutter.app}}/hello_world.py
+
+push message:
+    git add -A
+    git commit -m {{ "'{{message}}'" }}
+    git push origin HEAD
+
+sync message source="main":
+    poetry lock
+    git add -A
+    git commit -m {{ "'{{message}}'" }} || true
+    git pull origin {{ '"{{source}}"' }}
+    git push origin HEAD
