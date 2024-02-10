@@ -1,7 +1,7 @@
 version: '3.8'
 
 services:
-  app:
+  {{cookiecutter.app}}:
     build:
       context: ..
       dockerfile: .devcontainer/Dockerfile

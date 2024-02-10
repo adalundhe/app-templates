@@ -1,7 +1,7 @@
 {
 	"name": "Python {{cookiecutter.version}} FastAPI Template",
 	"dockerComposeFile": "docker-compose.yml",
-	"service": "app",
+	"service": "{{cookiecutter.app}}",
 	"workspaceFolder": "/workspace",
 	"customizations": {
 		// Configure properties specific to VS Code.
