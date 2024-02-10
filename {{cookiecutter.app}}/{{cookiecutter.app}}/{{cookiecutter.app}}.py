@@ -8,4 +8,6 @@ class {{ cookiecutter.app.replace('-', '_').split('_') | map('capitalize') | joi
 
     @step()
     async def hello_world(self):
-        print('Hello world!')
+        await self.shell.run(
+            'echo "Hello world!"'
+        )
