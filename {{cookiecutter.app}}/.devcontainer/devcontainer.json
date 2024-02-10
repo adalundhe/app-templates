@@ -1,0 +1,44 @@
+{
+	"name": "Python 3",
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "{{cookiecutter.app}}",
+	"workspaceFolder": "/workspace",
+	"customizations": {
+		// Configure properties specific to VS Code.
+		"vscode": {
+			// Set *default* container specific settings.json values on container create.
+			"settings": { 
+				"python.defaultInterpreterPath": "/workspace/.venv/bin/python",
+				"python.linting.enabled": true,
+				"python.linting.enable": true,
+				"git.path": "/usr/local/bin/git",
+				"python.languageServer": "Pylance",
+				"pylint.path": [
+					"/workspace/.venv/bin/python",
+					"-m",
+					"pylint"
+				],	
+				"editor.formatOnSave": true,
+
+				"editor.codeActionsOnSave": {
+					"source.fixAll": "always",
+					"source.organizeImports": "always"
+				},
+				"editor.defaultFormatter": "charliermarsh.ruff",
+				"terminal.integrated.shellIntegration.suggestEnabled": true,
+				"terminal.integrated.shellIntegration.decorationsEnabled": "both",
+				"editor.tabCompletion": "on",
+				"terminal.integrated.defaultProfile.linux": "zsh"
+			},
+			
+			// Add the IDs of extensions you want installed when the container is created.
+			"extensions": [
+				"ms-python.python",
+				"ms-python.vscode-pylance",
+				"ms-azuretools.vscode-docker",
+				"charliermarsh.ruff"
+			]
+		}
+	},
+	"remoteUser": "vscode"
+}

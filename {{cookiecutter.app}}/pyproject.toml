@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "app-templates"
+version = "0.1.0"
+description = ""
+authors = ["Ada Lundhe <ada@datavant.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^{{cookiecutter.version}}"
+werkflow = "^0.1.4"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
