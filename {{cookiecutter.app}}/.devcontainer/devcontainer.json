@@ -8,29 +8,39 @@
 		"vscode": {
 			// Set *default* container specific settings.json values on container create.
 			"settings": { 
-				"python.defaultInterpreterPath": "/usr/local/bin/python",
+				"python.defaultInterpreterPath": "/workspace/.venv/bin/python",
 				"python.linting.enabled": true,
 				"python.linting.enable": true,
-				"python.testing.pytestPath": "/usr/local/py-utils/bin/pytest",
-				"git.path": "/usr/local/bin/git",	
+				"git.path": "/usr/local/bin/git",
+				"python.languageServer": "Pylance",
+				"pylint.path": [
+					"/workspace/.venv/bin/python",
+					"-m",
+					"pylint"
+				],	
 				"editor.formatOnSave": true,
 
 				"editor.codeActionsOnSave": {
 					"source.fixAll": "always",
 					"source.organizeImports": "always"
 				},
-				"editor.defaultFormatter": "charliermarsh.ruff"
+				"editor.defaultFormatter": "charliermarsh.ruff",
+				"terminal.integrated.shellIntegration.suggestEnabled": true,
+				"terminal.integrated.shellIntegration.decorationsEnabled": "both",
+				"editor.tabCompletion": "on",
+				"terminal.integrated.defaultProfile.linux": "zsh"
 			},
 			
 			// Add the IDs of extensions you want installed when the container is created.
 			"extensions": [
 				"ms-python.python",
 				"ms-python.vscode-pylance",
+				"ms-azuretools.vscode-docker",
 				"charliermarsh.ruff"
 			]
 		}
 	},
-	"postCreateCommand": "bash ./.devcontainer/post-install.sh",
+	"postCreateCommand": "bash ./.devcontainer/post-install.sh && zsh",
 	"forwardPorts": [5000, 5432],
-	"remoteUser": "datavant-dev"
+	"remoteUser": "vscode"
 }
