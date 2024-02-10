@@ -4,7 +4,7 @@ from werkflow import (
 )
 
 
-class {{ cookiecutter.app | capitalize | replace('-', '') | replace('_', '')}}(Workflow):
+class {{ cookiecutter.app.replace('-', '_').split('_') | map('capitalize') | join('') }}(Workflow):
 
     @step()
     async def hello_world(self):
