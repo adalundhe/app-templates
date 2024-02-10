@@ -8,8 +8,6 @@ services:
       args:
         VERSION_VARIANT: "{{cookiecutter.version}}"
         OS_VARIANT: bookworm
-        USERNAME: datavant-dev
-        USER_UID: 1000
 
     volumes:
       - ..:/workspace  
