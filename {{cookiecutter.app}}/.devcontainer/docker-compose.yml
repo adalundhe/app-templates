@@ -7,7 +7,6 @@ services:
       dockerfile: .devcontainer/Dockerfile
       args:
         VERSION_VARIANT: "{{cookiecutter.version}}"
-        OS_VARIANT: bookworm
 
     volumes:
       - ..:/workspace  
