@@ -1,0 +1,40 @@
+{
+	"name": "Rust",
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "{{cookiecutter.app}}",
+	"workspaceFolder": "/workspace",
+	"remoteEnv": {
+		"WORKDIR_PATH": "/workspace"
+	},
+	"customizations": {
+		// Configure properties specific to VS Code.
+		"vscode": {
+			// Set *default* container specific settings.json values on container create.
+			"settings": { 
+				"git.path": "/usr/local/bin/git",
+				"editor.formatOnSave": true,
+
+				"editor.codeActionsOnSave": {
+					"source.fixAll": "always",
+					"source.organizeImports": "always"
+				},
+				"terminal.integrated.shellIntegration.suggestEnabled": true,
+				"terminal.integrated.shellIntegration.decorationsEnabled": "both",
+				"editor.tabCompletion": "on",
+				"terminal.integrated.defaultProfile.linux": "zsh"
+			},
+			
+			// Add the IDs of extensions you want installed when the container is created.
+			"extensions": [
+				"rust-lang.rust-analyzer",
+				"serayuzgur.crate",
+				"dustypomerleau.rust-syntax",
+				"bodil.prettier-toml",
+				"be5invis.toml",
+				"ms-azuretools.vscode-docker"
+			]
+		}
+	},
+	"postStartCommand": "direnv allow",
+	"remoteUser": "vscode"
+}

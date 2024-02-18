@@ -1,0 +1,1 @@
+FROM corpheus91/devcontainers:rust-bookworm
